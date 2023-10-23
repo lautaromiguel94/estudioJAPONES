@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> calculadora de Tiempo de Estudio para el examen JLPT
+  </title>
+<style>
+@import url(index.css);
+body{
+    font-family: sans-serif;
+    text-align: center;
+}
+input{
+    display:block;
+    margin: auto;
+    margin-bottom: 15px;
+
+}</style>
+</head>
+
+<body>
+    <section>           </section>
+    <h1>Calculadora de Tiempo de Estudio para el JLPT</h1>
+    <h2>examen de suficiencia de idioma japonés <br></h2>
+    <h3>日本語能力試験</h3>
+    <!-- Selecciona el nivel del JLPT -->
+    <label for="nivel-jlpt">Selecciona el nivel del JLPT:</label>
+    <select id="nivel-jlpt">
+        <option value="N5">N5</option>
+        <option value="N4">N4</option>
+        <option value="N3">N3</option>
+        <option value="N2">N2</option>
+        <option value="N1">N1</option>
+    </select>
+
+    <!-- Botón para calcular el tiempo de estudio -->
+    <button onclick="calcularTiempoEstudio()">Calcular Tiempo de Estudio</button>
+
+    <!-- Resultado -->
+    <p id="resultado"></p>
+
+    <script>
+        // Define las estimaciones de tiempo de estudio para cada nivel del JLPT en horas
+        const estimacionesTiempo = {
+            N5: 250,
+            N4: 550,
+            N3: 900,
+            N2: 2000,
+            N1: 17520,
+        };
+
+        function calcularTiempoEstudio() {
+            const nivelJLPT = document.getElementById("nivel-jlpt").value;
+
+            if (nivelJLPT in estimacionesTiempo) {
+                const tiempoEstudioHoras = estimacionesTiempo[nivelJLPT];
+                document.getElementById("resultado").textContent = `Para el nivel ${nivelJLPT}, se recomienda aproximadamente ${tiempoEstudioHoras} horas de estudio.`;
+            } else {
+                document.getElementById("resultado").textContent = "Nivel del JLPT no válido.";
+            }
+        }
+    </script>
+</body>
+<img src="https://interacnetwork.com/the-content/cream/wp-content/uploads/2018/11/Japan_005_1500x1000-640x427.jpg" alt="">
+
+</html>
+
+
